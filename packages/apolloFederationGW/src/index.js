@@ -1,11 +1,12 @@
-import { ApolloServer } from 'apollo-server-lambda';
+import { ApolloServer } from 'apollo-server-lambda'; // use with serverless
+// import { ApolloServer } from 'apollo-server';
 import { ApolloGateway } from '@apollo/gateway';
 import { formatError } from 'apollo-errors';
 
 const gateway = new ApolloGateway({
   serviceList: [
-    { name: 'tweets', url: 'https://localhost:4001/graphql' },
-    { name: 'users', url: 'https://localhost:4002/graphql' },
+    { name: 'tweets', url: 'http://localhost:4001/graphql' },
+    // { name: 'users', url: 'http://localhost:4002/graphql' },
   ],
 });
 
@@ -24,6 +25,11 @@ const createHandler = async () => {
       context,
     }),
   });
+
+  // server.listen(4000).then(({ url }) => {
+  //   console.log(`🚀 Server ready at ${url}`);
+  // });
+
   // eslint-disable-next-line no-return-await
   return server.createHandler({
     cors: {
@@ -39,3 +45,5 @@ const createHandler = async () => {
 export const graphqlHandler = (event, context, callback) => {
   createHandler().then(handler => handler(event, context, callback));
 };
+
+// createHandler();
