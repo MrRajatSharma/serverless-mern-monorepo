@@ -1,5 +1,5 @@
 service:
-  name: apollo-server-issue-3416
+  name: tweets-service
 
 provider:
   name: aws
