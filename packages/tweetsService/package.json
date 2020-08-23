@@ -18,6 +18,7 @@
     "url": "git+https://github.com/MrRajatSharma/serverless-mern-monorepo.git"
   },
   "scripts": {
+    "start": "node ./src/index.js",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {

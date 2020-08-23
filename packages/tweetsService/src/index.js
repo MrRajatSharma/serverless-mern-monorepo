@@ -19,7 +19,8 @@ const tweets = [
 
 const typeDefs = gql`
   extend type Query {
-    fist: Tweet
+    first: Tweet,
+    listAll: [Tweet!]!
   }
   type Tweet @key(fields: "id") {
     id: ID!
@@ -33,14 +34,14 @@ const resolvers = {
   Query: {
     first() {
       return tweets[0];
+    },
+    listAll() {
+      return tweets;
     }
   },
   Tweet: {
     __resolveReference(object) {
       return tweets.find(tweet => tweet.id === object.id);
-    },
-    listAll() {
-      return tweets;
     }
   }
 };
@@ -54,12 +55,13 @@ const server = new ApolloServer({
   ])
 });
 
-// server.listen({ port: 4001 }).then(({ url }) => {
-//   console.log(`🚀 Server ready at ${url}`);
-// });
-
-exports.handler = server.createHandler({
-  cors: {
-    origin: '*',
-  },
+// uncomment below to run as node env instead of serverless
+server.listen({ port: 4001 }).then(({ url }) => {
+  console.log(`🚀 Server ready at ${url}`);
 });
+
+// exports.handler = server.createHandler({
+//   cors: {
+//     origin: '*',
+//   },
+// });
