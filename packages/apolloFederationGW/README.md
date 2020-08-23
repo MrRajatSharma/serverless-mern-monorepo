@@ -4,8 +4,4 @@
 
 ## Usage
 
-```
-const apolloFederationGw = require('apolloFederationGW');
-
-// TODO: DEMONSTRATE API
-```
+run `npm run offline-start`
