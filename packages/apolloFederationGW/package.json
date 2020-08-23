@@ -11,6 +11,7 @@
     "url": "git+https://github.com/MrRajatSharma/serverless-mern-monorepo.git"
   },
   "scripts": {
+    "offline-start": "export AWS_PROFILE=dev && export APOLLO_SERVER_PORT=4000 && sls offline start",
     "start": "apollo-scripts start",
     "deploy": "apollo-scripts deploy",
     "test": "echo \"Error: run tests from root\" && exit 1"
@@ -22,10 +23,10 @@
     "@apollo/gateway": "^0.10.7",
     "@babel/runtime": "7.4.5",
     "apollo-errors": "1.9.0",
-    "apollo-server-express": "2.6.2",
-    "apollo-server-lambda": "2.8.2",
+    "apollo-server-express": "^2.16.1",
+    "apollo-server-lambda": "^2.16.1",
     "apollo-server-scripts": "^0.4.0-alpha.1",
-    "graphql": "14.3.1",
+    "graphql": "^14.5.0",
     "merge-graphql-schemas": "1.5.8"
   },
   "devDependencies": {
