@@ -5,7 +5,7 @@
   "author": "Rajat Sharma <er.rajat15@gmail.com>",
   "homepage": "https://github.com/MrRajatSharma/serverless-mern-monorepo#readme",
   "license": "ISC",
-  "main": "lib/tweetsService.js",
+  "main": "src/index.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -22,5 +22,10 @@
   },
   "bugs": {
     "url": "https://github.com/MrRajatSharma/serverless-mern-monorepo/issues"
+  },
+  "dependencies": {
+    "@apollo/federation": "0.10.2",
+    "apollo-server": "2.8.2",
+    "graphql": "14.3.1"
   }
 }

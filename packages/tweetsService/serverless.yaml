@@ -1,0 +1,23 @@
+service:
+  name: apollo-server-issue-3416
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: us-east-1
+  stage: ${opt:stage}
+  environment:
+    NODE_ENV: ${env:NODE_ENV, "production"}
+    SERVERLESS_STAGE: ${self:provider.stage}
+
+plugins:
+  - serverless-offline
+
+functions:
+  tweets:
+    handler: src/index.handler
+    events:
+      - http:
+        path: "{proxy+}"
+        method: any
+        cors: true
