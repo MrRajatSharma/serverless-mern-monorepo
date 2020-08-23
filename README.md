@@ -1,0 +1,1 @@
+# Serverless mern monorepo
