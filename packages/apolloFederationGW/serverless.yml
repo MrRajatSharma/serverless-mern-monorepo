@@ -1,13 +1,16 @@
-service: user-gateway
+service: federation-gateway
+
 provider:
   name: aws
   runtime: nodejs8.10
-  region: ${env:APOLLO_SERVER_AWS_REGION}
-  stage: dev
+  region: ${env:APOLLO_SERVER_AWS_REGION, us-east-1}
+  stage: ${opt:stage, dev}
+
 plugins:
   - serverless-webpack
   - serverless-offline
   - serverless-dotenv-plugin
+
 functions:
   graphql:
     handler: src/index.graphqlHandler
@@ -23,5 +26,5 @@ custom:
     webpackConfig: ./config/webpack.config.js
     includeModules: true
   serverless-offline:
-    port: ${env:APOLLO_SERVER_PORT}
+    port: ${env:APOLLO_SERVER_PORT, 4000}
       
