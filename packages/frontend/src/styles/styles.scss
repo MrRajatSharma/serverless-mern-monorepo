@@ -1,0 +1,44 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background: linear-gradient(120deg, #c3fcea 0%, #8ec5fc 100%);
+  color: #333;
+  font-family: sans-serif;
+  padding: 0.5em 1em;
+  text-align: center;
+}
+
+.grid {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.grid-item {
+  padding: 20px 15px;
+  background-color: white;
+  border-radius: 11px;
+  // box-shadow: 0px 1px 5px 0px #dddddd;
+  // border: 2px solid white;
+  text-align: left;
+
+  p, h3 {
+    margin: 0.5em 0;
+  }
+
+
+}
+
+.grid-item *:first-child {
+  margin-top: 0;
+}
+
+.grid-item *:last-child {
+  margin-bottom: 0;
+}
