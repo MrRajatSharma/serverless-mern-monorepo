@@ -4,16 +4,18 @@ service:
 provider:
   name: aws
   runtime: nodejs12.x
-  region: ${env:APOLLO_SERVER_AWS_REGION, us-east-1}
-  stage: ${opt:stage, dev}
-  # environment:
-  #   NODE_ENV: ${env:NODE_ENV, "development"}
-  #   SERVERLESS_STAGE: ${self:provider.stage}
+  region: us-east-1
+  stage: ${opt:stage}
+  environment:
+    NODE_ENV: ${env:NODE_ENV, "development"}
+    stage: ${env:stage, "dev"}
+    SERVERLESS_STAGE: ${self:provider.stage}
 
 plugins:
   - serverless-offline
   - serverless-webpack
   - serverless-dotenv-plugin
+  - serverless-dynamodb-local
 
 functions:
   tweets:
@@ -25,8 +27,42 @@ functions:
           cors: true
 
 custom:
+  dynamodb:
+    stages:
+      - dev
+    start:
+      port: 8000
+      inMemory: true
+      # sharedDb: true
+      # dbPath: dbdump/
+      migrate: true
+      seed: true
+      noStart: true
+    seed:
+      domain:
+        sources:
+          - table: Tweets
+            sources: [seed-data/Tweets.json]
   webpack:
     webpackConfig: ./config/webpack.config.js
     includeModules: true
   serverless-offline:
-    port: ${env:APOLLO_SERVER_PORT, 4001}
+    port: ${env:APOLLO_SERVER_PORT}
+
+resources:
+  Resources:
+    TweetsTable:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 10
+          WriteCapacityUnits: 10
+        TableName: 'Tweets'
+        
+    
