@@ -8,3 +8,4 @@ jspm_packages
 
 .*.sw*
 packages/tweetsService/.dynamodb/*
+packages/tweetsService/yarn-error.log
