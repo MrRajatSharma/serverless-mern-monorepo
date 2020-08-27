@@ -11,22 +11,6 @@ import DynamoDB from 'aws-sdk/clients/dynamodb';
 const client = new DynamoDB({region: 'us-east-1', endpoint: "http://localhost:8000"});
 const mapper = new DataMapper({client});
 
-
-const tweets = [
-  {
-    id: "1",
-    user: "Ada Lovelace",
-    title: "Just another tweet",
-    created_at: ""
-  },
-  {
-    id: "2",
-    user: "Alan Turing",
-    title: "What is this happening",
-    created_at: ""
-  }
-];
-
 const getTweet = async (id) => {
   const toFetch = new Tweets();
   toFetch.id = id;
@@ -71,12 +55,6 @@ const resolvers = {
       console.log("list called with lastEvaluatedKey:", lastEvaluatedKey);
       return await getTweetByPage(lastEvaluatedKey && JSON.parse(lastEvaluatedKey));
     },
-    first() {
-      return tweets[0];
-    },
-    listAll() {
-      return tweets;
-    }
   },
   Tweet: {
     async __resolveReference(object) {
@@ -88,8 +66,6 @@ const resolvers = {
 
 const typeDefs = gql`
 extend type Query {
-  first: Tweet,
-  listAll: [Tweet!]!,
   list(lastEvaluatedKey: String): TweetList!
 }
 type TweetList {
@@ -102,7 +78,7 @@ type Tweet @key(fields: "id") {
   id: ID!
   user: String
   title: String
-  created_at: String
+  createdAt: String
 }`;
 
 const server = new ApolloServer({
