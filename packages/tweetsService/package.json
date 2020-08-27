@@ -18,7 +18,8 @@
     "url": "git+https://github.com/MrRajatSharma/serverless-mern-monorepo.git"
   },
   "scripts": {
-    "offline-start": "NODE_ENV=development serverless offline -s dev",
+    "offline-start": "serverless offline --stage=dev --env=development",
+    "seed": "sls dynamodb seed --seed=domain",
     "start": "node ./src/index.js",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
@@ -27,11 +28,15 @@
   },
   "dependencies": {
     "@apollo/federation": "^0.19.1",
+    "@aws/dynamodb-data-mapper": "^0.7.3",
     "apollo-server": "^2.16.1",
     "apollo-server-express": "^2.16.1",
     "apollo-server-lambda": "^2.16.1",
+    "aws-sdk": "^2.740.0",
     "express": "^4.17.1",
-    "graphql": "^14.5.0"
+    "graphql": "^14.5.0",
+    "serverless-dynamodb-local": "^0.2.39",
+    "uuid": "^8.3.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -40,11 +45,11 @@
     "@babel/preset-env": "^7.4.5",
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
-    "eslint-plugin-jest": "^22.6.4",
-    "jest": "^24.8.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jest": "^22.6.4",
+    "jest": "^24.8.0",
     "serverless": "^1.44.1",
     "serverless-dotenv-plugin": "^2.1.1",
     "serverless-offline": "^5.3.3",
