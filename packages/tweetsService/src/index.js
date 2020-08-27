@@ -1,3 +1,5 @@
+// Dynamodb data mapper reference: https://awslabs.github.io/dynamodb-data-mapper-js/packages/dynamodb-data-mapper/
+
 const { ApolloServer, gql } = require("apollo-server-lambda");
 // const { ApolloServer, gql } = require("apollo-server");
 const { buildFederatedSchema } = require("@apollo/federation");
