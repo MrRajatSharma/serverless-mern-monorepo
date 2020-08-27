@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "serverless offline --stage=dev --env=development",
-    "seed": "sls dynamodb seed --seed=domain",
+    "dynamodb-seed": "sls dynamodb seed --seed=domain",
     "dynamodb-start": "sls dynamodb start --seed=domain --stage=dev",
     "node-start": "node ./src/index.js",
     "test": "echo \"Error: run tests from root\" && exit 1"
