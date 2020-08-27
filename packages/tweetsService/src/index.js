@@ -25,23 +25,51 @@ const tweets = [
   }
 ];
 
+const getTweet = async (id) => {
+  const toFetch = new Tweets();
+  toFetch.id = id;
+  const fetched = await mapper.get({item: toFetch})
+  return fetched;
+}
+
+const getTweetByPage = async (lastEvaluatedKey) => {
+  const paginator = mapper.scan(
+    Tweets,
+    {
+        // automatically stop after 25 items or the entire result set has been
+        // fetched, whichever is smaller
+        startKey: lastEvaluatedKey || null,
+        limit: 10
+    }
+  ).pages();
+
+  let list;
+  for await (const page of paginator) {
+    list = page;
+  }
+
+  console.log(list);
+
+  // paginator.count,
+  // paginator.scannedCount,
+  // paginator.lastEvaluatedKey
+  // console.log("Paginator", paginator);
+  return {
+    count: paginator.count,
+    scannedCount: paginator.scannedCount,
+    lastEvaluatedKey: JSON.stringify(paginator.lastEvaluatedKey),
+    list
+  };
+
+}
+
 const resolvers = {
   Query: {
+    async list(lastEvaluatedKey) {
+      console.log("listCalled", lastEvaluatedKey, typeof lastEvaluatedKey);
+      return await getTweetByPage(lastEvaluatedKey);
+    },
     first() {
-
-      const tweet = new Tweets();
-      tweet.createdAt = new Date();
-      tweet.user = 'User1';
-      tweet.title = 'Hello, DataMapper';
-
-      // const toFetch = new Post();
-      // toFetch.id = postId;
-      // const fetched = await mapper.get({item: toFetch})
-      mapper.put({item: tweet}).then(() => {
-          // The tweet has been created!
-          console.log(tweet.id);
-      });
-
       return tweets[0];
     },
     listAll() {
@@ -49,7 +77,8 @@ const resolvers = {
     }
   },
   Tweet: {
-    __resolveReference(object) {
+    async __resolveReference(object) {
+      
       return tweets.find(tweet => tweet.id === object.id);
     }
   }
@@ -58,7 +87,14 @@ const resolvers = {
 const typeDefs = gql`
 extend type Query {
   first: Tweet,
-  listAll: [Tweet!]!
+  listAll: [Tweet!]!,
+  list(lastEvaluatedKey: String): TweetList!
+}
+type TweetList {
+  count: Int!,
+  scannedCount: Int!,
+  list: [Tweet!]!,
+  lastEvaluatedKey: String!
 }
 type Tweet @key(fields: "id") {
   id: ID!
