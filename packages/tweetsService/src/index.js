@@ -66,7 +66,7 @@ const getTweetByPage = async (lastEvaluatedKey) => {
 const resolvers = {
   Query: {
     async list(root, {lastEvaluatedKey}) {
-      console.log("listCalled", lastEvaluatedKey, typeof lastEvaluatedKey);
+      console.log("list called with lastEvaluatedKey:", lastEvaluatedKey);
       return await getTweetByPage(lastEvaluatedKey && JSON.parse(lastEvaluatedKey));
     },
     first() {
