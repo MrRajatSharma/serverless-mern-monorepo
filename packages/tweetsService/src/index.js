@@ -2,6 +2,14 @@ const { ApolloServer, gql } = require("apollo-server-lambda");
 // const { ApolloServer, gql } = require("apollo-server");
 const { buildFederatedSchema } = require("@apollo/federation");
 
+import Tweets from './tweets';
+import {DataMapper} from '@aws/dynamodb-data-mapper';
+import DynamoDB from 'aws-sdk/clients/dynamodb';
+
+const client = new DynamoDB({region: 'us-east-1', endpoint: "http://localhost:8000"});
+const mapper = new DataMapper({client});
+
+
 const tweets = [
   {
     id: "1",
@@ -20,6 +28,20 @@ const tweets = [
 const resolvers = {
   Query: {
     first() {
+
+      const tweet = new Tweets();
+      tweet.createdAt = new Date();
+      tweet.user = 'User1';
+      tweet.title = 'Hello, DataMapper';
+
+      // const toFetch = new Post();
+      // toFetch.id = postId;
+      // const fetched = await mapper.get({item: toFetch})
+      mapper.put({item: tweet}).then(() => {
+          // The tweet has been created!
+          console.log(tweet.id);
+      });
+
       return tweets[0];
     },
     listAll() {
