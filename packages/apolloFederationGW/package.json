@@ -11,8 +11,8 @@
     "url": "git+https://github.com/MrRajatSharma/serverless-mern-monorepo.git"
   },
   "scripts": {
-    "offline-start": "export AWS_PROFILE=dev && sls offline start",
-    "start": "apollo-scripts start",
+    "start": "export AWS_PROFILE=dev && sls offline start",
+    "node-start": "apollo-scripts start",
     "deploy": "apollo-scripts deploy",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },

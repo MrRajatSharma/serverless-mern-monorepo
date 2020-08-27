@@ -18,10 +18,10 @@
     "url": "git+https://github.com/MrRajatSharma/serverless-mern-monorepo.git"
   },
   "scripts": {
-    "offline-start": "serverless offline --stage=dev --env=development",
+    "start": "serverless offline --stage=dev --env=development",
     "seed": "sls dynamodb seed --seed=domain",
     "dynamodb-start": "sls dynamodb start --seed=domain --stage=dev",
-    "start": "node ./src/index.js",
+    "node-start": "node ./src/index.js",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
