@@ -65,7 +65,14 @@ const resolvers = {
 };
 
 const typeDefs = gql`
-extend type Query {
+type Mutation {
+  createTweet(
+    $title: String!,
+    $user: String!,
+    $body: String!
+  ): Tweet!
+}
+type Query {
   list(lastEvaluatedKey: String): TweetList!
 }
 type TweetList {
@@ -79,6 +86,11 @@ type Tweet @key(fields: "id") {
   user: String
   title: String
   createdAt: String
+}
+
+schema {
+  query: Query
+  mutation: Mutation
 }`;
 
 const server = new ApolloServer({
