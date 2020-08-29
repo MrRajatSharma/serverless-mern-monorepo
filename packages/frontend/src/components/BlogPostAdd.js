@@ -12,14 +12,14 @@ export default () => {
     <div className="pinterest-form">
       <Grid container spacing={2}>
         <Grid item xs={12} md="3">
-          <input required label="Title" className="pinterest-form__field" />
+          <input required label="Title" placeholder="Title" className="pinterest-form__field" />
         </Grid>
         <Grid item xs={12} md="3">
-          <input required label="Author" className="pinterest-form__field" />
+          <input required label="Author"  placeholder="Author" className="pinterest-form__field" />
         </Grid>
 
         <Grid item xs={12} md="3">
-          <input required label="Body" className="pinterest-form__field" />
+          <input required label="Body"  placeholder="Body" className="pinterest-form__field" />
         </Grid>
         <Grid item xs={12} md="3">
           <Button size="small" className="pinterest-form__button">Save</Button>
