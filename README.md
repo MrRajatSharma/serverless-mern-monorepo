@@ -8,7 +8,7 @@ STILL UNDER DEVELOPMENT
 - Nodejs
 - NPM
 
-## 1.2. setup
+## 1.2. Setup
 
 1. `yarn`
 2. `lerna bootstrap`
@@ -19,5 +19,5 @@ STILL UNDER DEVELOPMENT
 7. Open `http://localhost:4000` and access tweets service throught federation GW
 
 
-## 1.3. 1.2 Screenshot
+## 1.3. Screenshot
 ![Screenshot](https://raw.githubusercontent.com/MrRajatSharma/serverless-mern-monorepo/master/packages/frontend/screenshot/Screenshot%20from%202020-08-30%2001-11-11.png)
