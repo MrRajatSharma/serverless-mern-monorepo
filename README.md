@@ -1,4 +1,4 @@
-# 1. Serverless mern monorepo
+# 1. Serverless ~~mern~~ monorepo
 
 STILL UNDER DEVELOPMENT
 
