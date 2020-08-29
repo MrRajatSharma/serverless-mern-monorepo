@@ -1,8 +1,17 @@
 # 1. Serverless ~~mern~~ monorepo
 
-STILL UNDER DEVELOPMENT
+<p style="
+    padding: 1rem;
+    border-bottom: 1px solid red;
+    background: #fafbfc;
+">STILL UNDER DEVELOPMENT</p>
 
-## 1.1. Stack Used
+<h2 class="unchanged rich-diff-level-one" style="
+    padding: 1rem;
+    border-bottom: 1px solid red;
+    background: #fafbfc;
+">1.1. Stack Used</h2>
+
 - React
 - Node
 - Dynamodb
@@ -10,13 +19,22 @@ STILL UNDER DEVELOPMENT
 - GraphQL
 - Apollo Federation
   
-## 1.2. Requirements
+<h2 class="unchanged rich-diff-level-one" style="
+  padding: 1rem;
+  border-bottom: 1px solid red;
+  background: #fafbfc;
+">1.2. Requirements</h2>
+
 - Serverless
 - dynamodb-local
 - Nodejs
 - NPM
 
-## 1.3. Setup
+<h2 class="unchanged rich-diff-level-one" style="
+  padding: 1rem;
+  border-bottom: 1px solid red;
+  background: #fafbfc;
+">1.3. Setup</h2>
 
 ```terminal
 $ git clone https://github.com/amazingandyyy/mern.git
@@ -29,10 +47,17 @@ $ cd ./packages/frontend && npm start
 ```
 Open `http://localhost:4000` and access tweets service throught federation GW
 
+<h2 class="unchanged rich-diff-level-one" style="
+  padding: 1rem;
+  border-bottom: 1px solid red;
+  background: #fafbfc;
+">1.4. Screenshot</h2>
 
-## 1.4. Screenshot
 ![Screenshot](https://raw.githubusercontent.com/MrRajatSharma/serverless-mern-monorepo/master/packages/frontend/screenshot/Screenshot%20from%202020-08-30%2001-11-11.png)
 
+
+### Author
+[Rajat Sharma](https://github.com/MrRajatSharma/serverless-mern-monorepo/blob/master/LICENSE)
 
 ### License
 [MIT](https://github.com/MrRajatSharma/serverless-mern-monorepo/blob/master/LICENSE)
