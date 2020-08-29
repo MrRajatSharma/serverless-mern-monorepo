@@ -67,9 +67,9 @@ const resolvers = {
 const typeDefs = gql`
 type Mutation {
   createTweet(
-    $title: String!,
-    $user: String!,
-    $body: String!
+    title: String!,
+    user: String!,
+    body: String!
   ): Tweet!
 }
 type Query {
