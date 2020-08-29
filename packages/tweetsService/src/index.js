@@ -24,10 +24,9 @@ const createTweet = async (title, user, body) => {
     // tweet.createdAt = new Date();
     tweet.user = user;
     tweet.title = title;
-    mapper.put({item: tweet}).then(() => {
+    mapper.put({item: tweet}).then((x) => {
         // The tweet has been created!
-        console.log(tweet.id);
-        resolve(tweet);
+        resolve(x);
     });
   })
 }
