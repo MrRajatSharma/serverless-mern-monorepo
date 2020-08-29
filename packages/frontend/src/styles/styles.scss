@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  background: linear-gradient(120deg, #c3fcea 0%, #8ec5fc 100%);
+  background: linear-gradient(135deg, #f2ef92 0%, #fc8e8e 100%);
   color: #333;
   font-family: sans-serif;
   padding: 0.5em 1em;
@@ -41,4 +41,66 @@ body {
 
 .grid-item *:last-child {
   margin-bottom: 0;
+}
+
+.pinterest-form {
+  background: linear-gradient(120deg, #e2d981 0%, #e5a880 100%);
+  margin: 0 auto;
+  padding: .7rem;
+  border-radius: 3rem;
+  min-width: 200px;
+  transition: .3s ease;
+  
+  &__field {
+    background: transparent;
+    outline: none;
+    border: none;
+    color: white;
+    border-bottom: 1px solid #f0f0f0;
+    padding: .7rem 1rem !important;
+    width: 100%;
+
+    &:hover, &:active {
+      border-bottom: 1px solid #fff;
+    }
+  }
+
+  &__button {
+    padding: .7rem 3rem !important;
+    /* background: transparent; */
+    width: 100%;
+    border-radius: 3rem !important;
+    color: #3f3333 !important;
+    background: white !important;
+  }
+}
+
+@media only screen and (max-width: 1920px) {
+  .pinterest-form {
+    width: 1705px;
+  }
+}
+
+@media only screen and (max-width: 1805px) {
+  .pinterest-form {
+    width: 1490px;
+  }
+}
+
+@media only screen and (max-width: 1590px) {
+  .pinterest-form {
+    width: 1275px;
+  }
+}
+
+@media only screen and (max-width: 1370px) {
+  .pinterest-form {
+    width: 1060px
+  }
+}
+
+@media only screen and (max-width: 730px) {
+  .pinterest-form {
+    width: 90%
+  }
 }
