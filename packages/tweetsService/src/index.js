@@ -18,6 +18,19 @@ const getTweet = async (id) => {
   return fetched;
 }
 
+const createTweet = async (title, user, body) => {
+  return new Promise((resolve, reject) =>{
+    const tweet = new Tweets();
+    // tweet.createdAt = new Date();
+    tweet.user = user;
+    tweet.title = title;
+    mapper.put({item: tweet}).then(() => {
+        // The tweet has been created!
+        console.log(tweet.id);
+        resolve(tweet);
+    });
+  })
+}
 const getTweetByPage = async (lastEvaluatedKey) => {
   const paginator = mapper.scan(
     Tweets,
@@ -56,6 +69,13 @@ const resolvers = {
       return await getTweetByPage(lastEvaluatedKey && JSON.parse(lastEvaluatedKey));
     },
   },
+  Mutation: {
+    async createTweet (parent, args) {
+      console.log("args", args);
+      return await createTweet(args.title, args.user, args.body);
+    }
+  },
+
   Tweet: {
     async __resolveReference(object) {
       
