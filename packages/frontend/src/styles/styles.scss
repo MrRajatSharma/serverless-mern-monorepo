@@ -44,18 +44,19 @@ body {
 }
 
 .pinterest-form {
-  background: linear-gradient(120deg, #e2d981 0%, #e5a880 100%);
+  background: white;
   margin: 0 auto;
   padding: .7rem;
   border-radius: 3rem;
   min-width: 200px;
   transition: .3s ease;
+  margin-bottom: 1rem;
   
   &__field {
     background: transparent;
     outline: none;
     border: none;
-    color: white;
+    // color: white;
     border-bottom: 1px solid #f0f0f0;
     padding: .7rem 1rem !important;
     width: 100%;
@@ -70,8 +71,8 @@ body {
     /* background: transparent; */
     width: 100%;
     border-radius: 3rem !important;
-    color: #3f3333 !important;
-    background: white !important;
+    color: #fff !important;
+    background: linear-gradient(135deg, #FFEB3B 0%, #FF5722 100%) !important;
   }
 }
 
