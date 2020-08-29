@@ -15,28 +15,39 @@ mutation CreateTweetMutation (
     user: $user
     body: $body
   ) {
-    id,
     user,
+    id,
     title,
     createdAt
   } 
 }`
 
-export default () => {
+export default ({ appendTweet }) => {
   let title, user, body;
   const [addTweet, { data }] = useMutation(CREATE_TWEET);
+
+  console.log(data);
+
+  useEffect(() => {
+    if (data) {
+      console.log(data);
+      appendTweet(data);
+    }
+  }, [data])
 
   return (
     <form
       className="pinterest-form"
       onSubmit={e => {
         e.preventDefault();
+        console.log("submit called", title.value, user.value, body.value);
+
         addTweet({variables: {
           title: title.value,
           user: user.value,
           body: body.value
         }});
-        input.value = '';
+        
       }}
     >
       <Grid container spacing={2}>
@@ -70,7 +81,7 @@ export default () => {
           />
         </Grid>
         <Grid item xs={12} md="3">
-          <Button size="small" className="pinterest-form__button">Save</Button>
+          <Button size="small" type="submit" className="pinterest-form__button">Save</Button>
         </Grid>
       </Grid>
     </form>
