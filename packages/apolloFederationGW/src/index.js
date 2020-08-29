@@ -8,6 +8,8 @@ const gateway = new ApolloGateway({
     { name: 'tweets', url: 'http://localhost:4001/graphql' },
     // { name: 'users', url: 'http://localhost:4002/graphql' },
   ],
+  __exposeQueryPlanExperimental: false,
+
 });
 
 const createHandler = async () => {
