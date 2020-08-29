@@ -58,6 +58,7 @@ export default () => {
 
   return (
     <>
+      <h1 style={{ color: "white"}}>Pinterest</h1>
       <BlogPostAdd />
       <PinterestGrid >
         {items}

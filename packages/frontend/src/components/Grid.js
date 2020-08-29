@@ -44,7 +44,6 @@ class PinGrid extends React.Component {
     const { children } = this.props;
     return (
       <div>
-        <h1>Pinterest</h1>
         <Grid
           className="grid"
           component="ul"
