@@ -32,3 +32,7 @@ Open `http://localhost:4000` and access tweets service throught federation GW
 
 ## 1.4. Screenshot
 ![Screenshot](https://raw.githubusercontent.com/MrRajatSharma/serverless-mern-monorepo/master/packages/frontend/screenshot/Screenshot%20from%202020-08-30%2001-11-11.png)
+
+
+### License
+[MIT](https://github.com/MrRajatSharma/serverless-mern-monorepo/blob/master/LICENSE)
