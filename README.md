@@ -18,13 +18,16 @@ STILL UNDER DEVELOPMENT
 
 ## 1.3. Setup
 
-1. `yarn`
-2. `lerna bootstrap`
-3. Start dynamodb and seed `cd ./packages/tweetsService && npm run dynamodb-start && npm run dynamodb-seed`
-4. `cd ./packages/tweetsService && npm run start`
-5. `cd ./packages/apolloFederationGW && npm run start`
-6. `cd ./packages/frontend && npm start`
-7. Open `http://localhost:4000` and access tweets service throught federation GW
+```terminal
+$ git clone https://github.com/amazingandyyy/mern.git
+$ yarn
+$ lerna bootstrap
+$ cd ./packages/tweetsService && npm run dynamodb-start && npm run dynamodb-seed
+$ cd ./packages/tweetsService && npm run start
+$ cd ./packages/apolloFederationGW && npm run start
+$ cd ./packages/frontend && npm start
+```
+Open `http://localhost:4000` and access tweets service throught federation GW
 
 
 ## 1.4. Screenshot
